@@ -7,7 +7,7 @@ begin = input()
 if begin == "basic":
     try:
         file = open("netbox.txt", "x") #x nie doda pliku, gdy juz istnieje
-        file.write("argumenty,po,przecinkach")
+        file.write("name,device_role,tenant,manufacturer,device_type,status,site,rack,position,face")
         file.close()
         print("Building completed!")
     except:
