@@ -1,52 +1,48 @@
-import  deviceDB
-import  sys
+import deviceDB
+import sys
+import modelsDB
+import json
 
+#Poczatek - generowanie bazy lub nie
 print("Witaj Panie! Pustynia czeka na Ciebie.")
-print("Aby wygenerowac fundament potrzebny do dodawania sprzetu wpisz 'basic', w innym wypadku wpisz 'nara'.")
+print("Aby wygenerowac fundament potrzebny do dodawania sprzetu wpisz 'baza' lub pomin wciskajac enter.")
 begin = input()
-if begin == "basic":
+if begin == "baza":
     try:
         file = open("netbox.txt", "x") #x nie doda pliku, gdy juz istnieje
-        file.write("name,device_role,tenant,manufacturer,device_type,status,site,rack,position,face")
+        file.write("name,device_role,tenant,manufacturer,device_type,status,rack,position,face,site")
         file.close()
         print("Building completed!")
     except:
         print("Plik już istnieje.")
         sys.exit()
-elif begin == "nara":
+elif begin == "":
     print("Przejdzmy do wrzucania!")
 else:
     print("Jestes glupi czy nie umiesz czytac po polsku?")
-    print("basic czy nara?")
+    print("baza czy pomijasz?")
     begin2 = input()
-    if begin2 == "nara":
+    if begin2 == "":
         print("Nie jestes taki glupi na jakiego wygladasz.")
         print("Przejdzmy do wrzucania!")
     else:
         print("Ehhh...")
         sys.exit()
 
+#Koniec generowania bazy
+
+
 print("Wprowadz nazwe urzadzenia:")
 dname = input()
-print("Wprowadz skrot modelu urzadzenia:")
+print("Wprowadz skrot modelu urzadzenia lub wpisz help, aby wyswietlic pomoc. W przypadku dodawania panelu nacisnij enter.:")
 dmodel = input()
-print("Wprowadz U urzadzenia:")
+if dmodel == "help":
+    for key in modelsDB.models:
+        print(key, ' = ', modelsDB.models[key])
+    print("Wprowadz skrot:")
+    dmodel = input()
+else: pass
+print("Wprowadz U urzadzenia, jesli chcesz dodac to urzadzenie na wielu U przedziel ich numery spacjami:")
 du = input()
-print("Czy chcesz wprowadzic dodatkowe opcje? (Wpisz 'y' jesli tak.)")
-ddecision = input()
-print("Potwierdz wybor.")
-ddecision = input()
-if ddecision == "y":
-    print("Ilosc dodawanych urzadzen (wieksza niz 0):")
-    dno = input()
-    while int(dno) <= 0:
-        print("Wieksza niz 0!")
-        dno = input()
-    print("Kierunek dodawania(up/down):")
-    ddirection = input()
-    while ddirection != "up" and ddirection != "down":
-        print("Wybierz Up lub down!")
-        ddirection = input()
-else:
-    pass
-deviceDB.device_database(dname,dmodel,du)
+duList = du.split()
+deviceDB.device_database(dname,dmodel,duList)
