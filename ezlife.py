@@ -34,14 +34,17 @@ else:
 
 print("Wprowadz nazwe urzadzenia:")
 dname = input()
-print("Wprowadz skrot modelu urzadzenia lub wpisz help, aby wyswietlic pomoc. W przypadku dodawania panelu nacisnij enter.:")
-dmodel = input()
-if dmodel == "help":
-    for key in modelsDB.models:
-        print(key, ' = ', modelsDB.models[key])
-    print("Wprowadz skrot:")
+if dname== "po" or dname == "pm" or dname == "pp":
+    dmodel = "panel"
+else:
+    print("Wprowadz skrot modelu urzadzenia lub wpisz help, aby wyswietlic pomoc:")
     dmodel = input()
-else: pass
+    if dmodel == "help":
+        for key in modelsDB.models:
+            print(key, ' = ', modelsDB.models[key])
+        print("Wprowadz skrot:")
+        dmodel = input()
+    else: pass
 print("Wprowadz U urzadzenia, jesli chcesz dodac to urzadzenie na wielu U przedziel ich numery spacjami:")
 du = input()
 duList = du.split()
