@@ -12,7 +12,7 @@ def device_database(dname, dmodel, duList, drack, dsite):
             #                       name,device_role,tenant,manufacturer(brand),device_type(dmodel),status,position,face,rack,site
             fileAppend.write("\r" + dname + u +","+ "Passive infrastructure" + "," + "ZHS" + "," + "Generic" + "," + dmodel + "," + "Active" + "," + u + "," + "Front" + "," + drack + "," + dsite)
         fileAppend.close()
-
+            # device_role : Firewall Modem Passive infrastructure Router Switch Virtual-chassis
     else:
         dmodel = modelsDB.models[dmodel]
         brand = ""
@@ -26,5 +26,5 @@ def device_database(dname, dmodel, duList, drack, dsite):
             brand = ""
         fileAppend = open("netbox.txt", "a")
         for u in duList:
-            fileAppend.write("\r" + dname + "," + "ZHS" + "," + dmodel + "," + u + "," + brand)
+            fileAppend.write("\r" + dname + u +","+ "Switch" + "," + "ZHS" + "," + brand + "," + dmodel + "," + "Active" + "," + u + "," + "Front" + "," + drack + "," + dsite)
         fileAppend.close()
