@@ -1,0 +1,31 @@
+device role:
+Firewall
+Modem
+Passive infrastructure
+Router
+Switch
+Virtual-chassis
+
+
+manufacturer as brand:
+Cisco
+Juniper
+Generic
+Moxa
+
+
+status:
+Active
+
+
+rack:
+nazwa racka, podac jak ze sitem
+
+face:
+Front
+
+
+device type
+
+1U-SM-24-SC
+1U-UTP-24

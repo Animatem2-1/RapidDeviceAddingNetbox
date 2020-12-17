@@ -10,7 +10,7 @@ begin = input()
 if begin == "baza":
     try:
         file = open("netbox.txt", "x") #x nie doda pliku, gdy juz istnieje
-        file.write("name,device_role,tenant,manufacturer,device_type,status,rack,position,face,site")
+        file.write("name,device_role,tenant,manufacturer,device_type,status,position,face,rack,site")
         file.close()
         print("Building completed!")
     except:
@@ -35,7 +35,7 @@ else:
 print("Wprowadz nazwe urzadzenia:")
 dname = input()
 if dname== "po" or dname == "pm" or dname == "pp":
-    dmodel = "panel"
+    dmodel = "PP"
 else:
     print("Wprowadz skrot modelu urzadzenia lub wpisz help, aby wyswietlic pomoc:")
     dmodel = input()
@@ -48,4 +48,8 @@ else:
 print("Wprowadz U urzadzenia, jesli chcesz dodac to urzadzenie na wielu U przedziel ich numery spacjami:")
 du = input()
 duList = du.split()
-deviceDB.device_database(dname,dmodel,duList)
+print("Podaj nazwe 'rack' (szafy) lub nacisnij enter aby pozostawic pole puste do pozniejszego wypelnienia: ")
+drack = input()
+print("Podaj nazwe 'site' (wezla sieciowego) lub nacisnij enter aby pozostawic pole puste do pozniejszego wypelnienia: ")
+dsite = input()
+deviceDB.device_database(dname,dmodel,duList,drack,dsite)
