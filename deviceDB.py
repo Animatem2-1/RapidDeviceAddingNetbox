@@ -3,10 +3,14 @@ import modelsDB
 
 def device_database(dname, dmodel, duList, drack, dsite):
     dmodel = dmodel.format()
+    drack = drack.format()
     if dname== "po" or dname == "pm" or dname == "pp":
-        dname = dname.upper() + "/"
-        if dname == "PO/" or dname == "PM/":
+        dname = dname.upper()
+        if dname == "PO" or dname == "PM":
             dmodel = modelsDB.models[dname]
+            if drack != "": dname = dname + drack
+            else: pass
+        dname = dname + "/"
         fileAppend = open("netbox.txt", "a")
         for u in duList:
             #                       name,device_role,tenant,manufacturer(brand),device_type(dmodel),status,position,face,rack,site
