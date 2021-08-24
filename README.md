@@ -1,4 +1,4 @@
-# RapidDeviceAddingNetbox
+# DeviceAdd_Netbox
 Jak w nazwie repozytorium. Aplikacja pozwala na szybkie dodanie urzadzenia do Netboxa, głównie zajmuje sie urzadzeniami pasywnymi, takimi jak panele optyczne, miedziane lub porzadkowe. Program zawiera również wersje demo dodawania urzadzeń aktywnych, to jest switche, routery itp. różnych marek.
 
 
