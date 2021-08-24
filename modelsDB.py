@@ -1,4 +1,5 @@
 models = {
+    "PP" : "PP",
     "PM" : "1U-UTP-24",
     "PO" : "1U-SM-24-SC",
     "29x24" : "WS-C2960X-24TS-LL",
